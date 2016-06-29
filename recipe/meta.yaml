@@ -17,7 +17,7 @@ build:
     - DLLs/_ctypes.py   # [win]
     - bin/python
   track_features:
-    - vc14              # [win]
+    - vc10              # [win]
 
 requirements:
   build:
