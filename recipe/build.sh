@@ -20,6 +20,13 @@ if [ `uname` == Darwin ]; then
     ./configure --prefix=$PREFIX
     make
 
+    # DEBUGGING
+    CC --version
+    ls
+    ls *
+    ls Python
+    ls */*
+
     # The python binary should be copied out of the Python directory during the
     # make step but this silently fails as the name conflicts with the existing
     # Python directory.
