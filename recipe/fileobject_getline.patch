@@ -1,6 +1,6 @@
---- Objects/fileobject.c.orig	2016-07-01 09:02:04.140133378 -0500
-+++ Objects/fileobject.c	2016-07-01 09:02:18.708133210 -0500
-@@ -336,7 +336,7 @@
+--- Objects/fileobject.c.orig	2016-07-01 14:24:11.599910730 -0500
++++ Objects/fileobject.c	2016-07-01 14:23:39.651911098 -0500
+@@ -361,7 +361,7 @@
  */
  
  static object *
@@ -9,7 +9,7 @@
  	fileobject *f;
  	int n;
  {
-@@ -458,7 +458,7 @@
+@@ -482,7 +482,7 @@
  	}
  	if (((fileobject*)f)->f_fp == NULL)
  		return err_closed();
@@ -18,7 +18,7 @@
  }
  
  /* Python method */
-@@ -483,7 +483,7 @@
+@@ -507,7 +507,7 @@
  		}
  	}
  
@@ -27,7 +27,7 @@
  }
  
  static object *
-@@ -501,7 +501,7 @@
+@@ -525,7 +525,7 @@
  	if ((list = newlistobject(0)) == NULL)
  		return NULL;
  	for (;;) {

@@ -8,10 +8,10 @@ if [ `uname` == Darwin ]; then
     # For starters conda build cannot unpack the .tar.gz file as it contains
     # files which differ only in case.
     # Perform downloading, unpacking and patching manually
-    curl http://legacy.python.org/download/releases/src/python1.0.1.tar.gz \
-        > python1.0.1.tar.gz
-    tar xzf python1.0.1.tar.gz
-    cd python-1.0.1
+    curl http://legacy.python.org/download/releases/src/python1.1.tar.gz \
+        > python1.1.tar.gz
+    tar xzf python1.1.tar.gz
+    cd python-1.1
     patch -p0 < $RECIPE_DIR/fileobject_getline.patch
 
     # Compile with a no checking of the return type checking, note that
