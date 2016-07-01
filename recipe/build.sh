@@ -23,14 +23,14 @@ if [ `uname` == Darwin ]; then
     # DEBUGGING
     CC --version
     ls
-    ls *
-    ls Python
-    ls */*
+    ls Python/*
 
     # The python binary should be copied out of the Python directory during the
     # make step but this silently fails as the name conflicts with the existing
     # Python directory.
     # Perform the install manually from the Python directory
+    mkdir -p $PREFIX/bin
+    cp Python/python $PREFIX/bin/python
     install -c Python/python $PREFIX/bin/python
 
     mkdir -p $PREFIX/lib/python
