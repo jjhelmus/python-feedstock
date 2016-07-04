@@ -27,8 +27,11 @@ if [ `uname` == Darwin ]; then
     mkdir -p $PREFIX/bin
     install -c Python/python $PREFIX/bin/python
 
-    mkdir -p $PREFIX/lib/python
-    make libinstall
+    #mkdir -p $PREFIX/lib/python
+    #cp Python/python python-tmp
+    #rm -rf Python
+    #mv python-tmp python
+    #make libinstall
 fi
 
 if [ `uname` == Linux ]; then

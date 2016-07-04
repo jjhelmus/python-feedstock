@@ -21,12 +21,13 @@ build:
 
 test:
   commands:
+    - python -c "import sys; sys.path.append('./')"
+    - python -c "import sys; print sys.version"
     - python -c "import sys; print sys.path"
     # struct is a compiled module
     - python -c "import struct"
     # os is a python module, import will fail if sys.path is incorrect
     - python -c "import os"
-    - python -c "import sys; print sys.version"
 
 about:
   home: http://www.python.org/
