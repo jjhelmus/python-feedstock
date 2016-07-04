@@ -7,9 +7,14 @@ source:
   url: http://legacy.python.org/download/releases/src/python1.1.tar.gz  # [not osx]
   sha256: b7dcca096b521dfc12ecfc28612be9fc81ae0ce2fcd39182e38e40f0c7720e81
   patches:
+    # va_list is an array on Linux and OS X, backport the changes applied for
+    # this bug from Python 1.2
+    - getargs_va_list_array.patch  # [not osx]
+    - modsupport_va_list_array.patch  # [not osx]
     # Modules/fileobject.c defines a getline function which conflicts with the
     # one in stdio.h, rename the function in the file to _getline
     - fileobject_getline.patch  # [not osx]
+    # -lcrypt needs to be added the the Linux link arguments
     - setup.in_lcrypt.patch  # [not osx]
 
 build:

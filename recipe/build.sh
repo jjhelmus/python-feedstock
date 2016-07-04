@@ -13,6 +13,8 @@ if [ `uname` == Darwin ]; then
     tar xzf python1.1.tar.gz
     cd python-1.1
     patch -p0 < $RECIPE_DIR/fileobject_getline.patch
+    patch -p0 < $RECIPE_DIR/modsupport_va_list_array.patch
+    patch -p0 < $RECIPE_DIR/getargs_va_list_array.patch
 
     # Compile with a no checking of the return type checking, note that
     # CFLAGS cannot be used here.
@@ -27,11 +29,11 @@ if [ `uname` == Darwin ]; then
     mkdir -p $PREFIX/bin
     install -c Python/python $PREFIX/bin/python
 
-    #mkdir -p $PREFIX/lib/python
-    #cp Python/python python-tmp
-    #rm -rf Python
-    #mv python-tmp python
-    #make libinstall
+    mkdir -p $PREFIX/lib/python
+    cp Python/python python-tmp
+    rm -rf Python
+    mv python-tmp python
+    make libinstall
 fi
 
 if [ `uname` == Linux ]; then

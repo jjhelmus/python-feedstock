@@ -1,0 +1,11 @@
+--- Python/modsupport.c.orig	2016-07-04 16:42:48.000000000 -0500
++++ Python/modsupport.c	2016-07-04 16:42:00.000000000 -0500
+@@ -257,6 +257,8 @@
+ {
+ 	char *f = format;
+ 	int n = countformat(f, '\0');
++    va_list lva;
++    memcpy(lva, va, sizeof(va_list));
+ 	if (n < 0)
+ 		return NULL;
+ 	if (n == 0) {
