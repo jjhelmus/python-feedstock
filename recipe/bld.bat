@@ -7,11 +7,13 @@ REM Compile python, extensions and external libraries
 if "%ARCH%"=="64" (
    set PLATFORM=x64
    set VC_PATH=x64
-   set BUILD_PATH=amd64
+   REM set BUILD_PATH=amd64
+   set PCB=%SRC_DIR%\PCbuild\amd64
 ) else (
    set PLATFORM=Win32
    set VC_PATH=x86
-   set BUILD_PATH=win32
+   REM set BUILD_PATH=win32
+   set PCB=%SRC_DIR%\PCbuild
 )
 
 cd PCbuild
@@ -22,12 +24,12 @@ cd ..
 
 REM Populate the root package directory
 for %%x in (python34.dll python.exe pythonw.exe) do (
-    copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\%%x %PREFIX%
+    copy /Y %PCB%\%%x %PREFIX%
     if errorlevel 1 exit 1
 )
 
 for %%x in (python.pdb python34.pdb pythonw.pdb) do (
-    copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\%%x %PREFIX%
+    copy /Y %PCB%\%%x %PREFIX%
     if errorlevel 1 exit 1
 )
 
@@ -37,14 +39,14 @@ if errorlevel 1 exit 1
 
 REM Populate the DLLs directory
 mkdir %PREFIX%\DLLs
-xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
-if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
-if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tcl86t.dll %PREFIX%\DLLs\
-if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tk86t.dll %PREFIX%\DLLs\
-if errorlevel 1 exit 1
+REM xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
+REM if errorlevel 1 exit 1
+REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
+REM if errorlevel 1 exit 1
+REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tcl86t.dll %PREFIX%\DLLs\
+REM if errorlevel 1 exit 1
+REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tk86t.dll %PREFIX%\DLLs\
+REM if errorlevel 1 exit 1
 
 copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
 if errorlevel 1 exit 1
@@ -87,13 +89,13 @@ if errorlevel 1 exit 1
 
 
 REM Populate the tcl directory
-if "%ARCH%"=="64" (
-   xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
-   if errorlevel 1 exit 1
-) else (
-   xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
-   if errorlevel 1 exit 1
-)
+REM if "%ARCH%"=="64" (
+REM    xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
+REM    if errorlevel 1 exit 1
+REM ) else (
+REM    xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
+REM    if errorlevel 1 exit 1
+REM )
 
 
 REM Populate the include directory
@@ -119,12 +121,12 @@ if errorlevel 1 exit 1
 
 REM Populate the libs directory
 mkdir %PREFIX%\libs
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python34.lib %PREFIX%\libs\
+copy /Y %PCB%\python34.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python3.lib %PREFIX%\libs\
+copy /Y %PCB%\python3.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
-if errorlevel 1 exit 1
+REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
+REM if errorlevel 1 exit 1
 
 
 REM Populate the Lib directory
