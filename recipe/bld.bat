@@ -7,12 +7,10 @@ REM Compile python, extensions and external libraries
 if "%ARCH%"=="64" (
    set PLATFORM=x64
    set VC_PATH=x64
-   REM set BUILD_PATH=amd64
    set PCB=%SRC_DIR%\PCbuild\amd64
 ) else (
    set PLATFORM=Win32
    set VC_PATH=x86
-   REM set BUILD_PATH=win32
    set PCB=%SRC_DIR%\PCbuild
 )
 
@@ -41,12 +39,12 @@ REM Populate the DLLs directory
 mkdir %PREFIX%\DLLs
 xcopy /s /y %PCB%\*.pyd %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
-REM if errorlevel 1 exit 1
-REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tcl86t.dll %PREFIX%\DLLs\
-REM if errorlevel 1 exit 1
-REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tk86t.dll %PREFIX%\DLLs\
-REM if errorlevel 1 exit 1
+copy /Y %PCB%\sqlite3.dll %PREFIX%\DLLs\
+if errorlevel 1 exit 1
+copy /Y %PCB%\tcl86t.dll %PREFIX%\DLLs\
+if errorlevel 1 exit 1
+copy /Y %PCB%\tk86t.dll %PREFIX%\DLLs\
+if errorlevel 1 exit 1
 
 copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
 if errorlevel 1 exit 1
@@ -89,13 +87,13 @@ if errorlevel 1 exit 1
 
 
 REM Populate the tcl directory
-REM if "%ARCH%"=="64" (
-REM    xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
-REM    if errorlevel 1 exit 1
-REM ) else (
-REM    xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
-REM    if errorlevel 1 exit 1
-REM )
+if "%ARCH%"=="64" (
+   xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
+   if errorlevel 1 exit 1
+) else (
+   xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
+   if errorlevel 1 exit 1
+)
 
 
 REM Populate the include directory
@@ -125,8 +123,8 @@ copy /Y %PCB%\python34.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
 copy /Y %PCB%\python3.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
-REM if errorlevel 1 exit 1
+copy /Y %PCB%\_tkinter.lib %PREFIX%\libs\
+if errorlevel 1 exit 1
 
 
 REM Populate the Lib directory
@@ -145,4 +143,4 @@ if errorlevel 1 exit 1
 
 
 REM Pickle lib2to3 Grammar
-%PYTHON% -m lib2to3 --help
+%PYTHON% %SCRIPTS%\2to3 -l
