@@ -19,8 +19,8 @@ environment:
     secure: MP4hZYylDyUWEsrt3u3cod2sbFeRwUziH02mvQOdbjsTO/l1yIxDkP/76rSIjcGC
 
   matrix:
-#    - TARGET_ARCH: x86
-#      CONDA_PY: 34
+    - TARGET_ARCH: x86
+      CONDA_PY: 34
 
     - TARGET_ARCH: x64
       CONDA_PY: 34
@@ -57,7 +57,7 @@ install:
     # Workaround for Python 3.4 and x64 bug in latest conda-build.
     # FIXME: Remove once there is a release that fixes the upstream issue
     # ( https://github.com/conda/conda-build/issues/895 ).
-    #- cmd: if "%TARGET_ARCH%" == "x64" if "%CONDA_PY%" == "34" conda install conda-build=1.20.0 --yes
+    - cmd: if "%TARGET_ARCH%" == "x64" if "%CONDA_PY%" == "34" conda install conda-build=1.20.0 --yes
 
 # Skip .NET project specific build phase.
 build: off
