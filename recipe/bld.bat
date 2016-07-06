@@ -8,18 +8,16 @@ if "%ARCH%"=="64" (
    set PLATFORM=x64
    set VC_PATH=x64
    set PCB=%SRC_DIR%\PCbuild\amd64
-   set PP64="/p:Platform=x64"
 ) else (
    set PLATFORM=Win32
    set VC_PATH=x86
    set PCB=%SRC_DIR%\PCbuild
 )
 
-:: cd PCbuild
-:: call build.bat -e -M -p %PLATFORM%
-msbuild PCbuild\pcbuild.sln /t:build /p:Configuration=Release %PP64%
+cd PCbuild
+call build.bat -e -M -p %PLATFORM%
 if errorlevel 1 exit 1
-:: cd ..
+cd ..
 
 
 REM Populate the root package directory
