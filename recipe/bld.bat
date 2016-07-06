@@ -39,7 +39,7 @@ if errorlevel 1 exit 1
 
 REM Populate the DLLs directory
 mkdir %PREFIX%\DLLs
-xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
+xcopy /s /y %PCB%\*.pyd %PREFIX%\DLLs\
 if errorlevel 1 exit 1
 REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
 REM if errorlevel 1 exit 1
