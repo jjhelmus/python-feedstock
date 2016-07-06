@@ -17,7 +17,7 @@ if "%ARCH%"=="64" (
 )
 
 cd PCbuild
-call build.bat -e -p %PLATFORM%
+call build.bat -p %PLATFORM%
 if errorlevel 1 exit 1
 cd ..
 
@@ -39,8 +39,8 @@ if errorlevel 1 exit 1
 
 REM Populate the DLLs directory
 mkdir %PREFIX%\DLLs
-REM xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
-REM if errorlevel 1 exit 1
+xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
+if errorlevel 1 exit 1
 REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
 REM if errorlevel 1 exit 1
 REM copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tcl86t.dll %PREFIX%\DLLs\
