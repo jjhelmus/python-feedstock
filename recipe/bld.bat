@@ -3,31 +3,37 @@ python %RECIPE_DIR%\brand_python.py
 if errorlevel 1 exit 1
 
 
+
 REM Compile python, extensions and external libraries
 if "%ARCH%"=="64" (
    set PLATFORM=x64
    set VC_PATH=x64
-   set BUILD_PATH=amd64
+   set PCB=-%SRC_DIR%\PC\VS9.0\amd64
+   :: Next line is only for local builds
+   :: call "C:\Users\filler\AppData\Local\Programs\Common\Microsoft\Visual C++ for Python\9.0\vcvarsall.bat" x64
 ) else (
    set PLATFORM=Win32
    set VC_PATH=x86
-   set BUILD_PATH=win32
+   set PCB=-%SRC_DIR%\PC\VS9.0
 )
 
-cd PCbuild
+cd PC
+cd VS9.0
+dir
 call build.bat -e -p %PLATFORM%
 if errorlevel 1 exit 1
+cd ..
 cd ..
 
 
 REM Populate the root package directory
 for %%x in (python27.dll python.exe pythonw.exe) do (
-    copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\%%x %PREFIX%
+    copy /Y %PCB%\%%x %PREFIX%
     if errorlevel 1 exit 1
 )
 
 for %%x in (python.pdb python27.pdb pythonw.pdb) do (
-    copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\%%x %PREFIX%
+    copy /Y %PCB%\%%x %PREFIX%
     if errorlevel 1 exit 1
 )
 
@@ -37,13 +43,13 @@ if errorlevel 1 exit 1
 
 REM Populate the DLLs directory
 mkdir %PREFIX%\DLLs
-xcopy /s /y %SRC_DIR%\PCBuild\%BUILD_PATH%\*.pyd %PREFIX%\DLLs\
+xcopy /s /y %PCB%\*.pyd %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\sqlite3.dll %PREFIX%\DLLs\
+copy /Y %PCB%\sqlite3.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tcl86t.dll %PREFIX%\DLLs\
+copy /Y %PCB%\tcl86t.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\tk86t.dll %PREFIX%\DLLs\
+copy /Y %PCB%\tk86t.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
 
 copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
@@ -119,11 +125,11 @@ if errorlevel 1 exit 1
 
 REM Populate the libs directory
 mkdir %PREFIX%\libs
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python27.lib %PREFIX%\libs\
+copy /Y %PCB%\python27.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python.lib %PREFIX%\libs\
+copy /Y %PCB%\python.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
+copy /Y %PCB%\_tkinter.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
 
 
