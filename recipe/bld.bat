@@ -46,9 +46,9 @@ xcopy /s /y %PCB%\*.pyd %PREFIX%\DLLs\
 if errorlevel 1 exit 1
 copy /Y %PCB%\sqlite3.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-copy /Y %PCB%\tcl86t.dll %PREFIX%\DLLs\
+copy /Y %PCB%\tcl85.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
-copy /Y %PCB%\tk86t.dll %PREFIX%\DLLs\
+copy /Y %PCB%\tk85.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
 
 ::copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
