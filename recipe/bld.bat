@@ -61,33 +61,23 @@ if errorlevel 1 exit 1
 
 REM Populate the Tools directory
 mkdir %PREFIX%\Tools
-xcopy /s /y /i %SRC_DIR%\Tools\demo %PREFIX%\Tools\demo
+xcopy /s /y /i %SRC_DIR%\Tools\scripts %PREFIX%\Tools\Scripts
 if errorlevel 1 exit 1
 xcopy /s /y /i %SRC_DIR%\Tools\i18n %PREFIX%\Tools\i18n
 if errorlevel 1 exit 1
-xcopy /s /y /i %SRC_DIR%\Tools\parser %PREFIX%\Tools\parser
-if errorlevel 1 exit 1
 xcopy /s /y /i %SRC_DIR%\Tools\pynche %PREFIX%\Tools\pynche
 if errorlevel 1 exit 1
-xcopy /s /y /i %SRC_DIR%\Tools\scripts %PREFIX%\Tools\scripts
+xcopy /s /y /i %SRC_DIR%\Tools\versioncheck %PREFIX%\Tools\versioncheck
+if errorlevel 1 exit 1
+xcopy /s /y /i %SRC_DIR%\Tools\webchecker %PREFIX%\Tools\webchecker
 if errorlevel 1 exit 1
 
-del %PREFIX%\Tools\demo\README
+del %PREFIX%\Tools\Scripts\idle
 if errorlevel 1 exit 1
-del %PREFIX%\Tools\pynche\README
-if errorlevel 1 exit 1
-del %PREFIX%\Tools\pynche\pynche
-if errorlevel 1 exit 1
-del %PREFIX%\Tools\scripts\README
-if errorlevel 1 exit 1
-del %PREFIX%\Tools\scripts\dutree.doc
-if errorlevel 1 exit 1
-del %PREFIX%\Tools\scripts\idle
+del %PREFIX%\Tools\Scripts\pydoc
 if errorlevel 1 exit 1
 
-move /y %PREFIX%\Tools\scripts\2to3 %PREFIX%\Tools\scripts\2to3.py
-if errorlevel 1 exit 1
-move /y %PREFIX%\Tools\scripts\pydoc %PREFIX%\Tools\scripts\pydoc.py
+move /y %PREFIX%\Tools\Scripts\2to3 %PREFIX%\Tools\Scripts\2to3.py
 if errorlevel 1 exit 1
 
 
