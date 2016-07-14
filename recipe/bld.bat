@@ -116,8 +116,8 @@ REM Populate the libs directory
 mkdir %PREFIX%\libs
 copy /Y %PCB%\python27.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %PCB%\python.lib %PREFIX%\libs\
-if errorlevel 1 exit 1
+::copy /Y %PCB%\python.lib %PREFIX%\libs\
+::if errorlevel 1 exit 1
 copy /Y %PCB%\_tkinter.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
 
