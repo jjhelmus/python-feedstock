@@ -78,11 +78,9 @@ import mmap
 import operator
 import parser
 import pyexpat
-#import resource
 import select
 import ssl
 import strop
-#import syslog
 import time
 import unicodedata
 import zlib
@@ -107,6 +105,8 @@ if sys.platform != 'win32':
     import grp
     import nis
     import readline
+    import resource
+    import syslog
     import termios
 
     from distutils import sysconfig
