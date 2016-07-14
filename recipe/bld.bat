@@ -130,12 +130,12 @@ if errorlevel 1 exit 1
 
 ::REM bytecode compile the standard library
 
-::rd /s /q %STDLIB_DIR%\lib2to3\tests\
-::if errorlevel 1 exit 1
+rd /s /q %STDLIB_DIR%\lib2to3\tests\
+if errorlevel 1 exit 1
 
-::%PYTHON% -Wi %STDLIB_DIR%\compileall.py -f -q -x "bad_coding|badsyntax|py2_" %STDLIB_DIR%
-::if errorlevel 1 exit 1
+%PYTHON% -Wi %STDLIB_DIR%\compileall.py -f -q -x "bad_coding|badsyntax|py2_" %STDLIB_DIR%
+if errorlevel 1 exit 1
 
 
-::REM Pickle lib2to3 Grammar
-::%PYTHON% -m lib2to3 --help
+REM Pickle lib2to3 Grammar
+%PYTHON% -m lib2to3 --help
