@@ -91,41 +91,41 @@ if "%ARCH%"=="64" (
 )
 
 
-::REM Populate the include directory
-::xcopy /s /y %SRC_DIR%\Include %PREFIX%\include\
-::if errorlevel 1 exit 1
+REM Populate the include directory
+xcopy /s /y %SRC_DIR%\Include %PREFIX%\include\
+if errorlevel 1 exit 1
 
-::copy /Y %SRC_DIR%\PC\pyconfig.h %PREFIX%\include\
-::if errorlevel 1 exit 1
-
-
-::REM Populate the Scripts directory
-::IF NOT exist %SCRIPTS% (mkdir %SCRIPTS%)
-::if errorlevel 1 exit 1
-
-::for %%x in (idle pydoc) do (
-::    copy /Y %SRC_DIR%\Tools\scripts\%%x3 %SCRIPTS%\%%x
-::    if errorlevel 1 exit 1
-::)
-
-::copy /Y %SRC_DIR%\Tools\scripts\2to3 %SCRIPTS%
-::if errorlevel 1 exit 1
+copy /Y %SRC_DIR%\PC\pyconfig.h %PREFIX%\include\
+if errorlevel 1 exit 1
 
 
-::REM Populate the libs directory
-::mkdir %PREFIX%\libs
-::copy /Y %PCB%\python27.lib %PREFIX%\libs\
-::if errorlevel 1 exit 1
-::copy /Y %PCB%\python.lib %PREFIX%\libs\
-::if errorlevel 1 exit 1
-::copy /Y %PCB%\_tkinter.lib %PREFIX%\libs\
-::if errorlevel 1 exit 1
+REM Populate the Scripts directory
+IF NOT exist %SCRIPTS% (mkdir %SCRIPTS%)
+if errorlevel 1 exit 1
+
+for %%x in (idle pydoc) do (
+    copy /Y %SRC_DIR%\Tools\scripts\%%x3 %SCRIPTS%\%%x
+    if errorlevel 1 exit 1
+)
+
+copy /Y %SRC_DIR%\Tools\scripts\2to3 %SCRIPTS%
+if errorlevel 1 exit 1
+
+
+REM Populate the libs directory
+mkdir %PREFIX%\libs
+copy /Y %PCB%\python27.lib %PREFIX%\libs\
+if errorlevel 1 exit 1
+copy /Y %PCB%\python.lib %PREFIX%\libs\
+if errorlevel 1 exit 1
+copy /Y %PCB%\_tkinter.lib %PREFIX%\libs\
+if errorlevel 1 exit 1
 
 
 ::REM Populate the Lib directory
-::del %PREFIX%\libs\libpython*.a
-::xcopy /s /y %SRC_DIR%\Lib %PREFIX%\Lib\
-::if errorlevel 1 exit 1
+del %PREFIX%\libs\libpython*.a
+xcopy /s /y %SRC_DIR%\Lib %PREFIX%\Lib\
+if errorlevel 1 exit 1
 
 
 ::REM bytecode compile the standard library
