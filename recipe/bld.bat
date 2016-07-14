@@ -51,54 +51,52 @@ if errorlevel 1 exit 1
 copy /Y %PCB%\tk85.dll %PREFIX%\DLLs\
 if errorlevel 1 exit 1
 
-::copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
-::if errorlevel 1 exit 1
-::copy /Y %SRC_DIR%\PC\pyc.ico %PREFIX%\DLLs\
-::if errorlevel 1 exit 1
+copy /Y %SRC_DIR%\PC\py.ico %PREFIX%\DLLs\
+if errorlevel 1 exit 1
+copy /Y %SRC_DIR%\PC\pyc.ico %PREFIX%\DLLs\
+if errorlevel 1 exit 1
 
 
-::REM Populate the Tools directory
-::mkdir %PREFIX%\Tools
-::xcopy /s /y /i %SRC_DIR%\Tools\demo %PREFIX%\Tools\demo
-::if errorlevel 1 exit 1
-::xcopy /s /y /i %SRC_DIR%\Tools\i18n %PREFIX%\Tools\i18n
-::if errorlevel 1 exit 1
-::xcopy /s /y /i %SRC_DIR%\Tools\parser %PREFIX%\Tools\parser
-::if errorlevel 1 exit 1
-::xcopy /s /y /i %SRC_DIR%\Tools\pynche %PREFIX%\Tools\pynche
-::if errorlevel 1 exit 1
-::xcopy /s /y /i %SRC_DIR%\Tools\scripts %PREFIX%\Tools\scripts
-::if errorlevel 1 exit 1
+REM Populate the Tools directory
+mkdir %PREFIX%\Tools
+xcopy /s /y /i %SRC_DIR%\Tools\demo %PREFIX%\Tools\demo
+if errorlevel 1 exit 1
+xcopy /s /y /i %SRC_DIR%\Tools\i18n %PREFIX%\Tools\i18n
+if errorlevel 1 exit 1
+xcopy /s /y /i %SRC_DIR%\Tools\parser %PREFIX%\Tools\parser
+if errorlevel 1 exit 1
+xcopy /s /y /i %SRC_DIR%\Tools\pynche %PREFIX%\Tools\pynche
+if errorlevel 1 exit 1
+xcopy /s /y /i %SRC_DIR%\Tools\scripts %PREFIX%\Tools\scripts
+if errorlevel 1 exit 1
 
-::del %PREFIX%\Tools\demo\README
-::if errorlevel 1 exit 1
-::del %PREFIX%\Tools\pynche\README
-::if errorlevel 1 exit 1
-::del %PREFIX%\Tools\pynche\pynche
-::if errorlevel 1 exit 1
-::del %PREFIX%\Tools\scripts\README
-::if errorlevel 1 exit 1
-::del %PREFIX%\Tools\scripts\dutree.doc
-::if errorlevel 1 exit 1
-::del %PREFIX%\Tools\scripts\idle3
-::if errorlevel 1 exit 1
+del %PREFIX%\Tools\demo\README
+if errorlevel 1 exit 1
+del %PREFIX%\Tools\pynche\README
+if errorlevel 1 exit 1
+del %PREFIX%\Tools\pynche\pynche
+if errorlevel 1 exit 1
+del %PREFIX%\Tools\scripts\README
+if errorlevel 1 exit 1
+del %PREFIX%\Tools\scripts\dutree.doc
+if errorlevel 1 exit 1
+del %PREFIX%\Tools\scripts\idle
+if errorlevel 1 exit 1
 
-::move /y %PREFIX%\Tools\scripts\2to3 %PREFIX%\Tools\scripts\2to3.py
-::if errorlevel 1 exit 1
-::move /y %PREFIX%\Tools\scripts\pydoc3 %PREFIX%\Tools\scripts\pydoc3.py
-::if errorlevel 1 exit 1
-::move /y %PREFIX%\Tools\scripts\pyvenv %PREFIX%\Tools\scripts\pyvenv.py
-::if errorlevel 1 exit 1
+move /y %PREFIX%\Tools\scripts\2to3 %PREFIX%\Tools\scripts\2to3.py
+if errorlevel 1 exit 1
+move /y %PREFIX%\Tools\scripts\pydoc3 %PREFIX%\Tools\scripts\pydoc.py
+if errorlevel 1 exit 1
 
 
-::REM Populate the tcl directory
-::if "%ARCH%"=="64" (
-::   xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
-::   if errorlevel 1 exit 1
-::) else (
-::   xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
-::   if errorlevel 1 exit 1
-::)
+REM Populate the tcl directory
+if "%ARCH%"=="64" (
+   xcopy /s /y /i %SRC_DIR%\externals\tcltk64\lib %PREFIX%\tcl
+   if errorlevel 1 exit 1
+) else (
+   xcopy /s /y /i %SRC_DIR%\externals\tcltk\lib %PREFIX%\tcl
+   if errorlevel 1 exit 1
+)
 
 
 ::REM Populate the include directory
