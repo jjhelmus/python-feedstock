@@ -26,6 +26,7 @@ if errorlevel 1 exit 1
 cd ..
 
 
+echo on
 REM Populate the root package directory
 for %%x in (python27.dll python.exe pythonw.exe) do (
     copy /Y %PCB%\%%x %PREFIX%
