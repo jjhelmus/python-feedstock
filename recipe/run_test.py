@@ -78,7 +78,7 @@ import mmap
 import operator
 import parser
 import pyexpat
-import resource
+#import resource
 import select
 import ssl
 import strop
