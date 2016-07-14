@@ -82,7 +82,7 @@ import pyexpat
 import select
 import ssl
 import strop
-import syslog
+#import syslog
 import time
 import unicodedata
 import zlib
