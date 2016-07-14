@@ -85,7 +85,7 @@ if errorlevel 1 exit 1
 
 move /y %PREFIX%\Tools\scripts\2to3 %PREFIX%\Tools\scripts\2to3.py
 if errorlevel 1 exit 1
-move /y %PREFIX%\Tools\scripts\pydoc3 %PREFIX%\Tools\scripts\pydoc.py
+move /y %PREFIX%\Tools\scripts\pydoc %PREFIX%\Tools\scripts\pydoc.py
 if errorlevel 1 exit 1
 
 
