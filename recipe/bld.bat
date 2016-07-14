@@ -104,7 +104,7 @@ IF NOT exist %SCRIPTS% (mkdir %SCRIPTS%)
 if errorlevel 1 exit 1
 
 for %%x in (idle pydoc) do (
-    copy /Y %SRC_DIR%\Tools\scripts\%%x3 %SCRIPTS%\%%x
+    copy /Y %SRC_DIR%\Tools\scripts\%%x %SCRIPTS%\%%x
     if errorlevel 1 exit 1
 )
 
