@@ -11,6 +11,7 @@ source:
     # - unix_setup_dist.patch
     # set configuration options to use conda's available libraries
     - external_libraries.patch    # [win]
+    - build_bat.patch             # [win]
 
 build:
   number: 2

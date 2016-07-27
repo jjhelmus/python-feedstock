@@ -1,0 +1,11 @@
+--- build.bat.orig	2016-07-27 14:24:48.066032355 -0500
++++ build.bat	2016-07-27 14:25:12.122032078 -0500
+@@ -76,7 +76,7 @@
+ if "%IncludeSSL%"=="" set IncludeSSL=true
+ if "%IncludeTkinter%"=="" set IncludeTkinter=true
+ 
+-if "%IncludeExternals%"=="true" call "%dir%get_externals.bat"
++:: if "%IncludeExternals%"=="true" call "%dir%get_externals.bat"
+ 
+ if "%platf%"=="x64" (set vs_platf=x86_amd64)
+ 
