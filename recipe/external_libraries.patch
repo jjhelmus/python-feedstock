@@ -134,15 +134,6 @@ diff --git PCbuild/tcltk.props PCbuild/tcltk.props
 index 5e794e5..5e36fbb 100644
 --- PCbuild/tcltk.props
 +++ PCbuild/tcltk.props
-@@ -4,7 +4,7 @@
-   <PropertyGroup>
-     <TclMajorVersion>8</TclMajorVersion>
-     <TclMinorVersion>6</TclMinorVersion>
--    <TclPatchLevel>4</TclPatchLevel>
-+    <TclPatchLevel>5</TclPatchLevel>
-     <TclRevision>2</TclRevision>
-     <TkMajorVersion>$(TclMajorVersion)</TkMajorVersion>
-     <TkMinorVersion>$(TclMinorVersion)</TkMinorVersion>
 @@ -14,11 +14,10 @@
      <TixMinorVersion>4</TixMinorVersion>
      <TixPatchLevel>3</TixPatchLevel>

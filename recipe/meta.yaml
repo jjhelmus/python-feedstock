@@ -28,7 +28,7 @@ requirements:
     - openssl 1.0*
     - readline 6.2*     # [unix]
     - sqlite
-    - tk       8.5*
+    - tk       8.6*
     - vc       14
     - xz
     - zlib 1.2*
@@ -38,7 +38,7 @@ requirements:
     - openssl 1.0*
     - readline 6.2*     # [unix]
     - sqlite
-    - tk      8.5*
+    - tk      8.6*
     - vc      14
     - xz
     - zlib 1.2*
