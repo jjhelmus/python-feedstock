@@ -17,7 +17,7 @@ if "%ARCH%"=="64" (
 set "ExternalsDir=%LIBRARY_PREFIX%"
 
 cd PCbuild
-call build_pgo.bat -p %PLATFORM% /m:1
+call build.bat -p %PLATFORM% -M
 if errorlevel 1 exit 1
 cd ..
 
