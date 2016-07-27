@@ -111,8 +111,8 @@ copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python35.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
 copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\python3.lib %PREFIX%\libs\
 if errorlevel 1 exit 1
-copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
-if errorlevel 1 exit 1
+:: copy /Y %SRC_DIR%\PCbuild\%BUILD_PATH%\_tkinter.lib %PREFIX%\libs\
+:: if errorlevel 1 exit 1
 
 
 REM Populate the Lib directory
