@@ -1,5 +1,5 @@
---- build.bat.orig	2016-07-27 14:24:48.066032355 -0500
-+++ build.bat	2016-07-27 14:25:12.122032078 -0500
+--- PCbuild/build.bat.orig	2016-07-27 14:24:48.066032355 -0500
++++ PCbuild/build.bat	2016-07-27 14:25:12.122032078 -0500
 @@ -76,7 +76,7 @@
  if "%IncludeSSL%"=="" set IncludeSSL=true
  if "%IncludeTkinter%"=="" set IncludeTkinter=true
