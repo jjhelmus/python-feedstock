@@ -7,11 +7,11 @@ REM Compile python, extensions and external libraries
 if "%ARCH%"=="64" (
    set PLATFORM=x64
    set VC_PATH=x64
-   set BUILD_PATH=amd64-pgo
+   set BUILD_PATH=amd64
 ) else (
    set PLATFORM=Win32
    set VC_PATH=x86
-   set BUILD_PATH=win32-pgo
+   set BUILD_PATH=win32
 )
 
 set "ExternalsDir=%LIBRARY_PREFIX%"
