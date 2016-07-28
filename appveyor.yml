@@ -60,7 +60,7 @@ install:
     - cmd: if "%TARGET_ARCH%" == "x64" if "%CONDA_PY%" == "34" conda install conda-build=1.20.0 --yes
     - cmd: conda config --remove channels conda-forge
     - cmd: conda config --remove channels defaults
-    - cmd: conda config --add channels intel
+    - cmd: conda config --add channels jjhelmus
     - cmd: conda config --add channels conda-forge
     - cmd: conda config --add channels defaults
 
