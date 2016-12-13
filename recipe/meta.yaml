@@ -13,7 +13,7 @@ source:
       - win-library_bin.patch           # [win]
 
 build:
-  number: 3
+  number: 99
   # Windows has issues updating python if conda is using files itself.
   # Copy rather than link.
   no_link:
@@ -23,6 +23,10 @@ build:
     - vc14              # [win]
   script_env:
     - python_branding
+  skip_compile_pyc:
+    - lib/python3.5/lib2to3/tests/data/*.py
+#    - lib/python3.5/test*bad*.py
+
 
 requirements:
   build:
