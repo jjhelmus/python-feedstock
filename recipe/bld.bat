@@ -3,6 +3,9 @@ echo on
 %SYS_PYTHON% %RECIPE_DIR%\brand_python.py
 if errorlevel 1 exit 1
 
+copy %LIBRARY_BIN%\nasm.exe nasm-2.11.06
+if errorlevel 1 exit 1
+
 :: Compile python, extensions and external libraries
 if "%ARCH%"=="64" (
    set PLATFORM=x64
